@@ -4,8 +4,10 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/lib/integration/react';
 import { store, persistor } from './store';
 import ApplicationNavigator from './navigators/Application';
+import MyNavigation from './navigators/MyNavigation';
 import './translations';
-const App = () => (<Provider store={store}>
+const App = () => (
+  <Provider store={store}>
     {/**
      * PersistGate delays the rendering of the app's UI until the persisted state has been retrieved
      * and saved to redux.
@@ -14,7 +16,9 @@ const App = () => (<Provider store={store}>
      * @see https://github.com/rt2zz/redux-persist/blob/master/docs/PersistGate.md
      */}
     <PersistGate loading={null} persistor={persistor}>
-      <ApplicationNavigator />
+      {/*       <ApplicationNavigator /> */}
+      <MyNavigation />
     </PersistGate>
-  </Provider>);
+  </Provider>
+);
 export default App;
