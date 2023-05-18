@@ -1,132 +1,72 @@
 import React, { useState } from 'react';
-import {
-  View,
-  Text,
-  ImageBackground,
-  TouchableOpacity,
-  StyleSheet,
-  FlatList,
-} from 'react-native';
-
+import { View, Text, StyleSheet, FlatList, Button } from 'react-native';
+import { Colors } from 'react-native/Libraries/NewAppScreen';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from '../../theme';
-import { ContentScreen, CustomButton, ScreenComponent } from '../../components';
-import { FontSize, Colors } from '../../theme/Variables';
-import { Images } from '../../theme';
+import { CustomButton, ScreenComponent, Slider } from '../../components';
 import { ContainerStyle } from '../Commonstyle';
+import { Content } from '../../theme/Constent';
+import Header from './utils/header';
+import Footer from './utils/Footer';
 
-const onViewableItemsChanged = ({ viewableItems, changed }) => {
-  console.log('Visible items are', viewableItems);
-  console.log('Changed in this iteration, ', changed);
-};
-
-const StartingScreen = () => {
+const StartingScreen = ({ navigation }) => {
   const [flatListRef, setFlatListRef] = useState(null);
   let index = 0;
-  const obj = [
-    {
-      id: 0,
-      title: 'intelligent Screen',
-      header: 'Discover All Kind of Plants in the World',
-      imageUrl: '../../theme/assets/images/painting.jpeg',
-      content:
-        'Quickly scan the plant and find , in our complete catalog, everythis about the plant you want.',
-    },
-    {
-      id: 1,
-      title: 'welcome',
-      header: 'Discover All Kind of Plants in the World',
-      imageUrl: '../../theme/assets/images/painting.jpeg',
-      content:
-        'Quickly scan the plant and find , in our complete catalog, everythis about the plant you want.',
-    },
-    {
-      id: 2,
-      title: 'Cute',
-      header: 'Discover All Kind of Plants in the World',
-      imageUrl: '../../theme/assets/images/painting.jpeg',
-      content:
-        'Quickly scan the plant and find , in our complete catalog, everythis about the plant you want.',
-    },
-  ];
-  const viewabilityConfig = {
-    waitForInteraction: true,
-    viewAreaCoveragePercentThreshold: 30,
+  const findIndex = onScroll => {
+    const contentOffsetX = onScroll.nativeEvent.contentOffset.x;
+    const itemIndex = Math.floor(contentOffsetX / 360);
+    console.log('hello', index);
+    index = itemIndex + 1;
   };
-  const FlatListItemSeparator = () => {
-    return <View style={{ marginLeft: 10, marginRight: 10 }} />;
+  const jumpToNext = () => {
+    if (index == 0) {
+      index = index + 1;
+    } else if (index == 3) {
+      navigation.navigate('SignIn');
+    } else {
+      setTimeout(() => flatListRef.scrollToIndex({ index: index }), 200);
+    }
   };
   return (
     <View style={ContainerStyle.mainContainer}>
-      <View style={styles.skipContainer}>
-        <TouchableOpacity onPress={() => console.log('hllo')}>
-          <Text style={{ fontSize: FontSize.small, color: Colors.lightBlack }}>
-            SKIP
-          </Text>
-        </TouchableOpacity>
-      </View>
-
+      <Button title="hello" onPress={() => navigation.navigate('SignIn')} />
+      <Header onPress={() => console.log('hello') /*  */} />
       <FlatList
-        initialNumToRender={1}
-        maxToRenderPerBatch={1}
-        initialScrollIndex={0}
         ref={ref => setFlatListRef(ref)}
         pagingEnabled
         horizontal={true}
-        data={obj}
+        data={Content}
+        onScroll={findIndex}
         showsHorizontalScrollIndicator={false}
-        /*      onViewableItemsChanged={onViewableItemsChanged}
-        viewabilityConfig={viewabilityConfig} */
         keyExtractor={item => item.id}
         disableIntervalMomentum={true}
-        renderItem={({ item, index }) => {
-          console.log(index, 'index of item');
+        renderItem={({ item }) => {
           return (
-            <View style={{ width: wp('94%') }}>
+            <View style={{ width: wp('92%') }}>
               <ScreenComponent data={item} />
             </View>
           );
         }}
       />
 
-      <View
-        style={{
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-        }}
-      >
-        <Text>-----</Text>
-        <CustomButton
-          title="Next"
-          onPress={() => {
-            console.log(flatListRef, 'flat list ref');
-            if (index < 2) {
-              index = index + 1;
-            }
-            setTimeout(() => flatListRef.scrollToIndex({ index: index }), 200);
-          }}
-          style={{ borderWidth: 1 }}
-        />
+      <View style={styles.footer}>
+        <View style={{ flexDirection: 'row' }}>
+          {Content.map((arr, indexofarr) => (
+            <Slider index={indexofarr} />
+          ))}
+        </View>
+        <CustomButton title="Next" onPress={() => jumpToNext()} />
       </View>
     </View>
   );
 };
 export default StartingScreen;
 const styles = StyleSheet.create({
-  skipContainer: {
-    alignItems: 'flex-end',
-    paddingBottom: hp('1%'),
-  },
-  ImageContianer: {
-    flex: 1,
-  },
-  ImageStyle: {
-    flex: 1,
-  },
-  contentStyle: {
-    flex: 1,
-    justifyContent: 'space-around',
+  footer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
 });

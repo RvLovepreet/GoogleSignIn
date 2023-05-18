@@ -6,7 +6,10 @@ buildscript {
         minSdkVersion = 21
         compileSdkVersion = 33
         targetSdkVersion = 33
-
+        //new code 
+        supportLibVersion = "27.1.1"
+        googlePlayServicesAuthVersion = "19.2.0"
+        //new code 
         // We use NDK 23 which has both M1 support and is the side-by-side NDK version from AGP.
         ndkVersion = "23.1.7779620"
     }
@@ -17,5 +20,28 @@ buildscript {
     dependencies {
         classpath("com.android.tools.build:gradle:7.3.1")
         classpath("com.facebook.react:react-native-gradle-plugin")
+        //new code for firebase
+        classpath 'com.google.gms:google-services:4.3.15'
+        //google sign in
+        classpath 'com.android.tools.build:gradle:4.2.1' // <--- use this version or newer
+        classpath 'com.google.gms:google-services:4.3.10' // <--- use this version or newer
+        //google sign in
     }
+}
+
+allprojects {
+  repositories {
+
+    // Make sure that you have the following two repositories
+    google()  // Google's Maven repository
+    mavenCentral()  // Maven Central repository
+    //google sign
+    mavenLocal()
+    jcenter()
+    maven {
+            // All of React Native (JS, Obj-C sources, Android binaries) is installed from npm
+            url "$rootDir/../node_modules/react-native/android"
+        }
+         //google sign
+  }
 }

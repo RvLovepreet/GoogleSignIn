@@ -30,6 +30,7 @@ const styles = StyleSheet.create({
   },
   ImageContianer: {
     flex: 1,
+    padding: hp('1%'),
   },
   ImageStyle: {
     flex: 1,

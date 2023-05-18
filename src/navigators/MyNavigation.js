@@ -3,9 +3,7 @@ import { SafeAreaView, StatusBar } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { StartingScreen } from '../screens';
-
-import MainNavigator from './Main';
-
+import SignIn from '../screens/SignIn/SignIn';
 const Stack = createStackNavigator();
 // @refresh reset
 const MyNavigation = () => {
@@ -14,6 +12,7 @@ const MyNavigation = () => {
       <NavigationContainer>
         <StatusBar />
         <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="SignIn" component={SignIn} />
           <Stack.Screen name="StartingScreen" component={StartingScreen} />
           {/*      <Stack.Screen name="Startup" component={Startup} />
           <Stack.Screen name="Main" component={MainNavigator} /> */}
