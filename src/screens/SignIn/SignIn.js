@@ -1,13 +1,16 @@
 import React, { useEffect } from 'react';
 import { View, Text } from 'react-native';
-import { CustomInputField } from '../../components';
+import { CustomInputField, SignInButton, CustomHeader } from '../../components';
+import { ContainerStyle } from '../Commonstyle';
 import {
   GoogleSignin,
   GoogleSigninButton,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
 import { TouchableOpacity } from 'react-native';
-const SignIn = () => {
+import { FontSize, Colors } from '../../theme/Variables';
+
+const SignIn = ({ navigation }) => {
   useEffect(() => {
     GoogleSignin.configure();
     console.log();
@@ -19,7 +22,7 @@ const SignIn = () => {
       await GoogleSignin.hasPlayServices();
 
       const userInfo = await GoogleSignin.signIn();
-      console.log(userInfo, 'dsfasdfa');
+      navigation.navigate('Profile', { user: userInfo });
     } catch (error) {
       if (error.code === statusCodes.SIGN_IN_CANCELLED) {
         // user cancelled the login flow
@@ -33,20 +36,16 @@ const SignIn = () => {
     }
   };
   return (
-    <View>
-      <TouchableOpacity onPress={() => signIn()}>
-        <Text>hello World</Text>
-      </TouchableOpacity>
-      <View>
-        <GoogleSigninButton
-          style={{ width: 192, height: 48 }}
-          size={GoogleSigninButton.Size.Wide}
-          color={GoogleSigninButton.Color.Dark}
-          onPress={signIn}
-          /*  disabled={this.state.isSigninInProgress} */
-        />
+    <>
+      <CustomHeader title="Sign In" />
+      <View style={ContainerStyle.mainContainer}>
+        <View style={{ justifyContent: 'space-between' }}>
+          <CustomInputField title="Name" />
+          <CustomInputField title="Password" />
+          <SignInButton onPress={() => signIn()} title="Signin With Google" />
+        </View>
       </View>
-    </View>
+    </>
   );
 };
 export default SignIn;
