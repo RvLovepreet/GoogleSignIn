@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image } from 'react-native';
 import { CustomHeader, CustomInfo } from '../../components';
 const Profile = ({ navigation, route }) => {
   const user = route.params.user.user;
@@ -8,6 +8,7 @@ const Profile = ({ navigation, route }) => {
     <>
       <CustomHeader title="Profile" />
       <View>
+        {/*   <Image source={require('../../theme/assets/images/logo.png')} /> */}
         <CustomInfo field="Name:" value={user.name} />
         <CustomInfo field="Email:" value={user.email} />
         <CustomInfo field="Family Name:" value={user.familyName} />

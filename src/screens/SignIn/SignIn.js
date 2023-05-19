@@ -1,26 +1,30 @@
-import React, { useEffect } from 'react';
-import { View, Text } from 'react-native';
-import { CustomInputField, SignInButton, CustomHeader } from '../../components';
+import React, { useEffect, useState } from 'react';
+import { View, StyleSheet } from 'react-native';
+import {
+  CustomInputField,
+  SignInButton,
+  CustomHeader,
+  Loader,
+} from '../../components';
 import { ContainerStyle } from '../Commonstyle';
+import { widthPercentageToDP as wp } from '../../theme';
 import {
   GoogleSignin,
-  GoogleSigninButton,
   statusCodes,
 } from '@react-native-google-signin/google-signin';
-import { TouchableOpacity } from 'react-native';
-import { FontSize, Colors } from '../../theme/Variables';
 
 const SignIn = ({ navigation }) => {
+  const [loader, setLoader] = useState(false);
+
   useEffect(() => {
     GoogleSignin.configure();
-    console.log();
   }, []);
 
   const signIn = async () => {
     try {
+      setLoader(true);
       console.log('hello');
       await GoogleSignin.hasPlayServices();
-
       const userInfo = await GoogleSignin.signIn();
       navigation.navigate('Profile', { user: userInfo });
     } catch (error) {
@@ -33,19 +37,30 @@ const SignIn = ({ navigation }) => {
       } else {
         // some other error happened
       }
+    } finally {
+      setLoader(false);
     }
   };
   return (
     <>
-      <CustomHeader title="Sign In" />
-      <View style={ContainerStyle.mainContainer}>
-        <View style={{ justifyContent: 'space-between' }}>
-          <CustomInputField title="Name" />
-          <CustomInputField title="Password" />
-          <SignInButton onPress={() => signIn()} title="Signin With Google" />
-        </View>
-      </View>
+      {loader ? (
+        <Loader />
+      ) : (
+        <>
+          <CustomHeader title="Sign In" />
+          <View style={[ContainerStyle.mainContainer, styles.contentContainer]}>
+            <CustomInputField title="Name" />
+            <CustomInputField title="Password" />
+            <SignInButton onPress={() => signIn()} title="Signin With Google" />
+          </View>
+        </>
+      )}
     </>
   );
 };
 export default SignIn;
+const styles = StyleSheet.create({
+  contentContainer: {
+    padding: wp('2%'),
+  },
+});

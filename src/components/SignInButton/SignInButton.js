@@ -1,10 +1,17 @@
 import React from 'react';
-import { TouchableOpacity, Text, Image, StyleSheet } from 'react-native';
+import {
+  TouchableOpacity,
+  Text,
+  Image,
+  StyleSheet,
+  Dimensions,
+} from 'react-native';
 import { FontSize } from '../../theme/Variables';
 import {
   heightPercentageToDP as hp,
   widthPercentageToDP as wp,
 } from '../../theme';
+const { height, width } = Dimensions.get('window');
 const SignInButton = ({ title, onPress }) => {
   return (
     <>
@@ -22,6 +29,8 @@ const SignInButton = ({ title, onPress }) => {
 export default SignInButton;
 const styles = StyleSheet.create({
   BtnContainer: {
+    width: width * 0.96,
+    height: height * 0.1,
     borderWidth: 1,
     flexDirection: 'row',
     alignItems: 'center',

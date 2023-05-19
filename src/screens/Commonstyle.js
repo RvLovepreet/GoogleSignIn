@@ -8,6 +8,5 @@ export const ContainerStyle = StyleSheet.create({
   mainContainer: {
     flex: 1,
     width: '100%',
-    padding: hp('2%'),
   },
 });

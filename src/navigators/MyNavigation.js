@@ -8,9 +8,9 @@ const Stack = createStackNavigator();
 // @refresh reset
 const MyNavigation = () => {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
-      <NavigationContainer>
-        <StatusBar />
+    <NavigationContainer>
+      <StatusBar />
+      <SafeAreaView style={{ flex: 1 }}>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="StartingScreen" component={StartingScreen} />
           <Stack.Screen name="SignIn" component={SignIn} />
@@ -18,8 +18,8 @@ const MyNavigation = () => {
           {/*      <Stack.Screen name="Startup" component={Startup} />
           <Stack.Screen name="Main" component={MainNavigator} /> */}
         </Stack.Navigator>
-      </NavigationContainer>
-    </SafeAreaView>
+      </SafeAreaView>
+    </NavigationContainer>
   );
 };
 export default MyNavigation;

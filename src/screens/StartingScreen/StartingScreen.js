@@ -1,38 +1,51 @@
-import React, { useState } from 'react';
-import { View, Text, StyleSheet, FlatList, Button } from 'react-native';
+import React, { useState, useRef } from 'react';
+import {
+  View,
+  Text,
+  StyleSheet,
+  FlatList,
+  Button,
+  Dimensions,
+} from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
+
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from '../../theme';
-import { CustomButton, ScreenComponent, Slider } from '../../components';
+import {
+  CustomButton,
+  ScreenComponent,
+  Slider,
+  Paginator,
+} from '../../components';
 import { ContainerStyle } from '../Commonstyle';
 import { Content } from '../../theme/Constent';
 import Header from './utils/header';
 import Footer from './utils/Footer';
 
 const StartingScreen = ({ navigation }) => {
+  const { width } = Dimensions.get('window');
   const [flatListRef, setFlatListRef] = useState(null);
-  let index = 0;
+  const [viewIndex, setViewIndex] = useState(0);
+
   const findIndex = onScroll => {
     const contentOffsetX = onScroll.nativeEvent.contentOffset.x;
-    const itemIndex = Math.floor(contentOffsetX / 360);
-    console.log('hello', index);
-    index = itemIndex + 1;
+    const itemIndex = Math.floor(contentOffsetX / width);
+    setViewIndex(itemIndex);
   };
   const jumpToNext = () => {
-    if (index == 0) {
-      index = index + 1;
-    } else if (index == 3) {
+    if (viewIndex == 2) {
       navigation.navigate('SignIn');
     } else {
-      setTimeout(() => flatListRef.scrollToIndex({ index: index }), 200);
+      setTimeout(() => {
+        flatListRef.scrollToIndex({ index: viewIndex + 1 });
+      }, 100);
     }
   };
   return (
     <View style={ContainerStyle.mainContainer}>
-      <Button title="hello" onPress={() => navigation.navigate('SignIn')} />
-      <Header onPress={() => console.log('hello') /*  */} />
+      <Header onPress={() => jumpToNext()} />
       <FlatList
         ref={ref => setFlatListRef(ref)}
         pagingEnabled
@@ -44,7 +57,7 @@ const StartingScreen = ({ navigation }) => {
         disableIntervalMomentum={true}
         renderItem={({ item }) => {
           return (
-            <View style={{ width: wp('92%') }}>
+            <View style={{ width: width }}>
               <ScreenComponent data={item} />
             </View>
           );
@@ -52,12 +65,12 @@ const StartingScreen = ({ navigation }) => {
       />
 
       <View style={styles.footer}>
-        <View style={{ flexDirection: 'row' }}>
-          {Content.map((arr, indexofarr) => (
-            <Slider index={indexofarr} />
-          ))}
-        </View>
-        <CustomButton title="Next" onPress={() => jumpToNext()} />
+        <Paginator Content={Content} indexofView={viewIndex} />
+        {viewIndex === 2 ? (
+          <CustomButton title="Start" onPress={() => jumpToNext()} />
+        ) : (
+          <CustomButton title="Next" onPress={() => jumpToNext()} />
+        )}
       </View>
     </View>
   );
@@ -68,5 +81,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+    padding: hp('1%'),
   },
 });

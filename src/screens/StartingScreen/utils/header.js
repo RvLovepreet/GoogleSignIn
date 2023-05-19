@@ -5,7 +5,7 @@ import { FontSize, Colors } from '../../../theme/Variables';
 const Header = ({ onPress }) => {
   return (
     <View style={styles.skipContainer}>
-      <TouchableOpacity onPress={() => onPress}>
+      <TouchableOpacity onPress={onPress}>
         <Text style={{ fontSize: FontSize.small, color: Colors.lightBlack }}>
           SKIP
         </Text>
@@ -17,6 +17,6 @@ export default Header;
 const styles = StyleSheet.create({
   skipContainer: {
     alignItems: 'flex-end',
-    paddingBottom: hp('1%'),
+    padding: hp('1%'),
   },
 });
