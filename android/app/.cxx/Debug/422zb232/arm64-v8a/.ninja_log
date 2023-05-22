@@ -54,3 +54,13 @@
 15	11293	1684748649	CMakeFiles/appmodules.dir/OnLoad.cpp.o	c0d3c2708de6b3cf
 16	27862	1684748666	CMakeFiles/appmodules.dir/Users/chicmic/Desktop/reactnative/cloneProject/GoogleSignIn/android/app/build/generated/rncli/src/main/jni/rncli.cpp.o	a1bdadfe988be6d4
 27863	29820	1684748668	/Users/chicmic/Desktop/reactnative/cloneProject/GoogleSignIn/android/app/build/intermediates/cxx/Debug/422zb232/obj/arm64-v8a/libappmodules.so	39c0744d0d9a5bbc
+6	92	0	/Users/chicmic/Desktop/reactnative/cloneProject/GoogleSignIn/android/app/.cxx/Debug/422zb232/arm64-v8a/CMakeFiles/cmake.verify_globs	d3eb215c845bfd00
+92	229	1684758570	build.ninja	36f3498f404ca097
+0	19	0	/Users/chicmic/Desktop/reactnative/cloneProject/GoogleSignIn/android/app/.cxx/Debug/422zb232/arm64-v8a/CMakeFiles/cmake.verify_globs	d3eb215c845bfd00
+12	3265	1684758573	CMakeFiles/appmodules.dir/OnLoad.cpp.o	c0d3c2708de6b3cf
+1	55	0	/Users/chicmic/Desktop/reactnative/cloneProject/GoogleSignIn/android/app/.cxx/Debug/422zb232/arm64-v8a/CMakeFiles/cmake.verify_globs	d3eb215c845bfd00
+55	357	1684758638	build.ninja	36f3498f404ca097
+1	22	0	/Users/chicmic/Desktop/reactnative/cloneProject/GoogleSignIn/android/app/.cxx/Debug/422zb232/arm64-v8a/CMakeFiles/cmake.verify_globs	d3eb215c845bfd00
+18	3335	1684758641	CMakeFiles/appmodules.dir/OnLoad.cpp.o	c0d3c2708de6b3cf
+16	12094	1684758650	CMakeFiles/appmodules.dir/Users/chicmic/Desktop/reactnative/cloneProject/GoogleSignIn/android/app/build/generated/rncli/src/main/jni/rncli.cpp.o	a1bdadfe988be6d4
+12094	12542	1684758650	/Users/chicmic/Desktop/reactnative/cloneProject/GoogleSignIn/android/app/build/intermediates/cxx/Debug/422zb232/obj/arm64-v8a/libappmodules.so	39c0744d0d9a5bbc
