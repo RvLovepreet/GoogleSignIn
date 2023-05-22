@@ -1,11 +1,20 @@
-#import "AppDelegate.h"
+//firebase code
 
+#import "AppDelegate.h"
+//firebase
+#import <Firebase.h>
+//firebase code
 #import <React/RCTBundleURLProvider.h>
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+  //firebase code
+  /*  if ([FIRApp defaultApp] == nil) { */
+    [FIRApp configure]; 
+/*   } */
+  //firebase code
   self.moduleName = @"MyApp";
   // You can add your custom initial props in the dictionary below.
   // They will be passed down to the ViewController used by React Native.

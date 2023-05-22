@@ -1,29 +1,18 @@
 import React, { useState, useRef } from 'react';
-import {
-  View,
-  Text,
-  StyleSheet,
-  FlatList,
-  Button,
-  Dimensions,
-} from 'react-native';
+import { View, StyleSheet, FlatList, Dimensions } from 'react-native';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
-} from '../../theme';
-import {
-  CustomButton,
-  ScreenComponent,
-  Slider,
-  Paginator,
-} from '../../components';
+} from 'react-native-responsive-screen';
+
+import { CustomButton, ScreenComponent, Paginator } from '../../components';
 import { ContainerStyle } from '../Commonstyle';
 import { Content } from '../../theme/Constent';
 import Header from './utils/header';
-import Footer from './utils/Footer';
-
+import { Common } from '../../theme/Variables';
+import { ImagePath } from '../../theme/Variables';
 const StartingScreen = ({ navigation }) => {
   const { width } = Dimensions.get('window');
   const [flatListRef, setFlatListRef] = useState(null);
@@ -31,7 +20,8 @@ const StartingScreen = ({ navigation }) => {
 
   const findIndex = onScroll => {
     const contentOffsetX = onScroll.nativeEvent.contentOffset.x;
-    const itemIndex = Math.floor(contentOffsetX / width);
+    const itemIndex = Math.round(contentOffsetX / width);
+    console.log(itemIndex, ' ', contentOffsetX, 'dsafdsfa');
     setViewIndex(itemIndex);
   };
   const jumpToNext = () => {
@@ -45,10 +35,16 @@ const StartingScreen = ({ navigation }) => {
   };
   return (
     <View style={ContainerStyle.mainContainer}>
-      <Header onPress={() => jumpToNext()} />
+      <Header
+        onPress={() => {
+          navigation.navigate('SignIn');
+        }}
+      />
+
       <FlatList
         ref={ref => setFlatListRef(ref)}
-        pagingEnabled
+        pagingEnabled={true}
+        snapToInterval={width}
         horizontal={true}
         data={Content}
         onScroll={findIndex}
@@ -65,11 +61,24 @@ const StartingScreen = ({ navigation }) => {
       />
 
       <View style={styles.footer}>
-        <Paginator Content={Content} indexofView={viewIndex} />
         {viewIndex === 2 ? (
-          <CustomButton title="Start" onPress={() => jumpToNext()} />
+          <>
+            <Paginator
+              Content={Content}
+              customStyle={styles.customStyle}
+              indexofView={viewIndex}
+            />
+            <CustomButton
+              title={Common.start}
+              CustomStyle={styles.customStyle}
+              onPress={() => jumpToNext()}
+            />
+          </>
         ) : (
-          <CustomButton title="Next" onPress={() => jumpToNext()} />
+          <>
+            <Paginator Content={Content} indexofView={viewIndex} />
+            <CustomButton title={Common.next} onPress={() => jumpToNext()} />
+          </>
         )}
       </View>
     </View>
@@ -82,5 +91,8 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     padding: hp('1%'),
+  },
+  customStyle: {
+    backgroundColor: '#e6db43',
   },
 });

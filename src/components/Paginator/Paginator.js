@@ -2,15 +2,28 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { ColorSchemeName } from 'react-native';
 import { Colors } from '../../theme/Variables';
+
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
+
 let width = 10;
-const Paginator = ({ Content, index, indexofView }) => {
+const Paginator = ({ Content, index, indexofView, customStyle }) => {
   return (
     <View style={{ flexDirection: 'row' }}>
-      {Content.map((arr, indexofarr) => {
+      {Content.map((_, indexofarr) => {
         if (indexofarr == indexofView) {
-          return <View style={[styles.viewStyle, styles.CurrentView]} />;
+          return (
+            <View
+              key={indexofarr}
+              style={[styles.viewStyle, styles.CurrentView, customStyle]}
+            />
+          );
         } else {
-          return <View style={[styles.viewStyle]} />;
+          return (
+            <View key={indexofarr} style={[styles.viewStyle, customStyle]} />
+          );
         }
       })}
     </View>
@@ -19,13 +32,13 @@ const Paginator = ({ Content, index, indexofView }) => {
 export default Paginator;
 const styles = StyleSheet.create({
   viewStyle: {
-    width: width,
-    height: 10,
+    width: wp('4%'),
+    height: hp('1.5%'),
     backgroundColor: Colors.primary,
     marginLeft: 4,
     borderRadius: 50,
   },
   CurrentView: {
-    width: 40,
+    width: wp('15%'),
   },
 });

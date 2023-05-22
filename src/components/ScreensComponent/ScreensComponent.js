@@ -2,22 +2,19 @@ import React from 'react';
 import { View, Text, ImageBackground, StyleSheet } from 'react-native';
 import ContentScreen from '../ContentScreen/ContentScreen';
 import { FontSize, Colors } from '../../theme/Variables';
-import {
-  widthPercentageToDP as wp,
-  heightPercentageToDP as hp,
-} from '../../theme';
+import { ImagePath } from '../../theme/Variables';
 const ScreenComponent = ({ data }) => {
   return (
     <>
       <View style={styles.ImageContianer}>
         <ImageBackground
           style={styles.ImageStyle}
-          source={require('../../theme/assets/images/painting.jpeg')}
+          source={ImagePath.painting}
           resizeMode="cover"
         />
       </View>
       <View style={styles.contentStyle}>
-        <ContentScreen data={data} onPress={() => console.log('hello')} />
+        <ContentScreen data={data} />
       </View>
     </>
   );
@@ -26,11 +23,11 @@ export default ScreenComponent;
 const styles = StyleSheet.create({
   skipContainer: {
     alignItems: 'flex-end',
-    paddingBottom: hp('1%'),
+    paddingBottom: 10,
   },
   ImageContianer: {
     flex: 1,
-    padding: hp('1%'),
+    padding: 10,
   },
   ImageStyle: {
     flex: 1,

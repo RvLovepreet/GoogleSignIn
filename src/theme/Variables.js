@@ -43,9 +43,28 @@ export const MetricsSizes = {
   regular,
   large,
 };
+
+export const Common = {
+  skip: 'SKIP',
+  next: 'Next',
+  start: 'Start',
+  signIn: 'Sign In',
+  signout: 'Sign Out',
+  name: 'Name:',
+  email: 'Email:',
+  familyName: 'Family Name',
+  password: 'Password',
+};
+export const ImagePath = {
+  logo: require('../theme/assets/images/googlelogo.png'),
+  painting: require('../theme/assets/images/painting.jpeg'),
+  userImage: require('../theme/assets/images/user.png'),
+};
 export default {
   Colors,
   NavigationColors,
   FontSize,
   MetricsSizes,
+  Common,
+  ImagePath,
 };

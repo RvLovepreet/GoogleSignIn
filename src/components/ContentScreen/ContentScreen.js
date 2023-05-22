@@ -2,9 +2,9 @@ import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { FontSize, Colors } from '../../theme/Variables';
 import {
-  heightPercentageToDP as hp,
   widthPercentageToDP as wp,
-} from '../../theme';
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
 import CustomButton from '../CustomButton/CustomButton';
 const ContentScreen = ({ onPress, data }) => {
   return (
@@ -24,19 +24,20 @@ export default ContentScreen;
 const styles = StyleSheet.create({
   headerContainer: { justifyContent: 'space-around', padding: wp('2%') },
   header: {
-    fontSize: FontSize.tiny,
+    fontSize: hp('2%'),
     fontWeight: '800',
     color: Colors.primary,
     textTransform: 'uppercase',
     marginBottom: hp('2%'),
   },
   title: {
-    fontSize: FontSize.regular,
+    fontSize: hp('4%'),
     fontWeight: '800',
     letterSpacing: 0.5,
   },
   content: {
-    fontSize: FontSize.small,
+    fontSize: hp('2%'),
+
     color: Colors.text,
     letterSpacing: 0,
     padding: wp('2%'),

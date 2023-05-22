@@ -1,10 +1,19 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { heightPercentageToDP as hp } from '../../theme';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from 'react-native-responsive-screen';
+
 import { FontSize, Colors } from '../../theme/Variables';
 const CustomInfo = ({ field, value }) => {
   return (
-    <View style={{ borderBottomWidth: 1, padding: hp('1%') }}>
+    <View
+      style={{
+        borderBottomWidth: 1,
+        padding: hp('1%'),
+      }}
+    >
       <Text style={{ fontSize: FontSize.regular, color: Colors.primary }}>
         {field}
       </Text>

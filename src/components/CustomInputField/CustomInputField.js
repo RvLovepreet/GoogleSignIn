@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, TextInput, Text, StyleSheet, Dimensions } from 'react-native';
-import { heightPercentageToDP as hp } from '../../theme';
+
 import { FontSize } from '../../theme/Variables';
 const { height, width } = Dimensions.get('window');
 const CustomInputField = ({ title }) => {
@@ -17,6 +17,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     width: width * 0.96,
     height: height * 0.08,
+    borderRadius: 40,
     fontSize: FontSize.regular,
     marginBottom: height * 0.02,
   },
