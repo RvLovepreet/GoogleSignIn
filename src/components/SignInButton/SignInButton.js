@@ -1,12 +1,7 @@
 import React from 'react';
-import {
-  TouchableOpacity,
-  Text,
-  Image,
-  StyleSheet,
-  Dimensions,
-} from 'react-native';
+import { Text, Image, StyleSheet, Dimensions } from 'react-native';
 import { FontSize } from '../../theme/Variables';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
@@ -27,8 +22,8 @@ const SignInButton = ({ title, onPress }) => {
 export default SignInButton;
 const styles = StyleSheet.create({
   BtnContainer: {
-    width: width * 0.96,
-    height: height * 0.1,
+    width: width * 0.8,
+    height: height * 0.07,
     borderRadius: 40,
     borderWidth: 1,
     flexDirection: 'row',
@@ -36,6 +31,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     padding: hp('1%'),
   },
-  logoStyle: { width: 30, height: 30, borderWidth: 1 },
-  BtnTitle: { fontSize: FontSize.small, marginLeft: wp('1%') },
+  logoStyle: { width: wp('8%'), height: hp('5%') },
+  BtnTitle: { fontSize: hp('2.5%'), marginLeft: wp('1%') },
 });

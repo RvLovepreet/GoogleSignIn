@@ -2,9 +2,10 @@ import React from 'react';
 import { SafeAreaView, StatusBar } from 'react-native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
-import { StartingScreen, Profile } from '../screens';
+import { StartingScreen, Profile, FileUploadScreen } from '../screens';
 import SignIn from '../screens/SignIn/SignIn';
 import { useSelector } from 'react-redux';
+
 const Stack = createStackNavigator();
 const AuthenticationScreen = () => {
   return (
@@ -35,7 +36,11 @@ const MyNavigation = () => {
     <NavigationContainer>
       <StatusBar />
       <SafeAreaView style={{ flex: 1 }}>
+        {/*  <Stack.Navigator screenOptions={{ headerShown: false }}>
+          <Stack.Screen name="FileUploadScreen" component={FileUploadScreen} />
+        </Stack.Navigator> */}
         {!key ? <AuthenticationScreen /> : <ProfileScreen />}
+
         {/*  <Stack.Navigator screenOptions={{ headerShown: false }}>
           {!key ? (
             <>

@@ -35,11 +35,16 @@ const StartingScreen = ({ navigation }) => {
   };
   return (
     <View style={ContainerStyle.mainContainer}>
-      <Header
-        onPress={() => {
-          navigation.navigate('SignIn');
-        }}
-      />
+      {viewIndex == 2 ? (
+        <Header />
+      ) : (
+        <Header
+          title={Common.skip}
+          onPress={() => {
+            navigation.navigate('SignIn');
+          }}
+        />
+      )}
 
       <FlatList
         ref={ref => setFlatListRef(ref)}
@@ -61,24 +66,15 @@ const StartingScreen = ({ navigation }) => {
       />
 
       <View style={styles.footer}>
+        <Paginator Content={Content} indexofView={viewIndex} />
         {viewIndex === 2 ? (
-          <>
-            <Paginator
-              Content={Content}
-              customStyle={styles.customStyle}
-              indexofView={viewIndex}
-            />
-            <CustomButton
-              title={Common.start}
-              CustomStyle={styles.customStyle}
-              onPress={() => jumpToNext()}
-            />
-          </>
+          <CustomButton
+            title={Common.start}
+            CustomStyle={styles.customStyle}
+            onPress={() => jumpToNext()}
+          />
         ) : (
-          <>
-            <Paginator Content={Content} indexofView={viewIndex} />
-            <CustomButton title={Common.next} onPress={() => jumpToNext()} />
-          </>
+          <CustomButton title={Common.next} onPress={() => jumpToNext()} />
         )}
       </View>
     </View>
@@ -93,6 +89,6 @@ const styles = StyleSheet.create({
     padding: hp('1%'),
   },
   customStyle: {
-    backgroundColor: '#e6db43',
+    backgroundColor: '#fc8403',
   },
 });

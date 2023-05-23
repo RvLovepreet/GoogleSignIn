@@ -45,26 +45,47 @@ const Profile = ({ navigation }) => {
   return (
     <>
       <CustomHeader title="Profile" />
-      <View>
-        <Image
-          style={styles.profileImage}
-          source={user.photo ? { uri: user.photo } : ImagePath.userImage}
-        />
-        <CustomInfo field={Common.name} value={user.name} />
-        <CustomInfo field={Common.email} value={user.email} />
-        <CustomInfo field={Common.familyName} value={user.givenName} />
-        <CustomButton title={Common.signout} onPress={() => signOut()} />
+      <View style={styles.container}>
+        <View style={styles.card}>
+          <Image
+            style={styles.profileImage}
+            source={user.photo ? { uri: user.photo } : ImagePath.userImage}
+          />
+          <CustomInfo field={Common.name} value={user.name} />
+          <CustomInfo field={Common.email} value={user.email} />
+          <CustomInfo field={Common.familyName} value={user.givenName} />
+          <CustomButton
+            title={Common.signout}
+            CustomStyle={styles.btnCustomStyle}
+            onPress={() => signOut()}
+          />
+        </View>
       </View>
     </>
   );
 };
 export default Profile;
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  card: {
+    borderWidth: 1,
+    paddingTop: hp('2%'),
+    paddingBottom: hp('3%'),
+    paddingLeft: wp('12%'),
+    paddingRight: wp('12%'),
+  },
   profileImage: {
     alignSelf: 'center',
     marginTop: hp('2%'),
     width: 100,
     height: 100,
     borderRadius: 50,
+  },
+  btnCustomStyle: {
+    marginTop: hp('3%'),
   },
 });

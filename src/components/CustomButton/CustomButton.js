@@ -13,7 +13,7 @@ const CustomButton = ({ title, onPress, CustomStyle }) => {
       onPress={onPress}
       style={[styles.btnContainer, CustomStyle]}
     >
-      <Text style={[styles.titleStyle, CustomStyle]}>{title}</Text>
+      <Text style={[styles.titleStyle]}>{title}</Text>
     </TouchableOpacity>
   );
 };
@@ -26,7 +26,6 @@ const styles = StyleSheet.create({
     paddingBottom: hp('2%'),
     borderRadius: 50,
     backgroundColor: Colors.primary,
-    marginTop: hp('2%'),
   },
   titleStyle: {
     fontSize: hp('2%'),
