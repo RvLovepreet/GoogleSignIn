@@ -44,6 +44,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
+  include("/Users/chicmic/Desktop/reactnative/cloneProject/GoogleSignIn/android/app/.cxx/Debug/422zb232/arm64-v8a/rndocumentpicker_autolinked_build/cmake_install.cmake")
   include("/Users/chicmic/Desktop/reactnative/cloneProject/GoogleSignIn/android/app/.cxx/Debug/422zb232/arm64-v8a/rngesturehandler_codegen_autolinked_build/cmake_install.cmake")
   include("/Users/chicmic/Desktop/reactnative/cloneProject/GoogleSignIn/android/app/.cxx/Debug/422zb232/arm64-v8a/reactnativemmkv_autolinked_build/cmake_install.cmake")
   include("/Users/chicmic/Desktop/reactnative/cloneProject/GoogleSignIn/android/app/.cxx/Debug/422zb232/arm64-v8a/RNCViewPager_autolinked_build/cmake_install.cmake")

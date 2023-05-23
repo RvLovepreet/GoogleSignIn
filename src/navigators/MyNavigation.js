@@ -36,10 +36,10 @@ const MyNavigation = () => {
     <NavigationContainer>
       <StatusBar />
       <SafeAreaView style={{ flex: 1 }}>
-        {/*  <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Navigator screenOptions={{ headerShown: false }}>
           <Stack.Screen name="FileUploadScreen" component={FileUploadScreen} />
-        </Stack.Navigator> */}
-        {!key ? <AuthenticationScreen /> : <ProfileScreen />}
+        </Stack.Navigator>
+        {/*  {!key ? <AuthenticationScreen /> : <ProfileScreen />} */}
 
         {/*  <Stack.Navigator screenOptions={{ headerShown: false }}>
           {!key ? (

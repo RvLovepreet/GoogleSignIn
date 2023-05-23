@@ -10,3 +10,4 @@ export { default as ContentScreen } from './ContentScreen/ContentScreen';
 export { default as CustomInputField } from './CustomInputField/CustomInputField';
 export { default as Loader } from './Loader/Loader';
 export { default as Paginator } from './Paginator/Paginator';
+export { default as MyModal } from './CustomModal/CustomModal';

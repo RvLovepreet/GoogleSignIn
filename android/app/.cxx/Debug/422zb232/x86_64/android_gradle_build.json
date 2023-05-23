@@ -1,5 +1,6 @@
 {
   "buildFiles": [
+    "/Users/chicmic/Desktop/reactnative/cloneProject/GoogleSignIn/node_modules/react-native-document-picker/android/build/generated/source/codegen/jni/CMakeLists.txt",
     "/Users/chicmic/Desktop/reactnative/cloneProject/GoogleSignIn/node_modules/react-native-gesture-handler/android/build/generated/source/codegen/jni/CMakeLists.txt",
     "/Users/chicmic/Desktop/reactnative/cloneProject/GoogleSignIn/node_modules/react-native-mmkv/android/build/generated/source/codegen/jni/CMakeLists.txt",
     "/Users/chicmic/Desktop/reactnative/cloneProject/GoogleSignIn/node_modules/react-native-pager-view/android/build/generated/source/codegen/jni/CMakeLists.txt",
@@ -32,6 +33,7 @@
         "/Users/chicmic/.gradle/caches/transforms-3/063ec92372c441ac2cf86f00dc6e7840/transformed/jetified-react-android-0.71.3-debug/prefab/modules/react_newarchdefaults/libs/android.x86_64/libreact_newarchdefaults.so",
         "/Users/chicmic/.gradle/caches/transforms-3/063ec92372c441ac2cf86f00dc6e7840/transformed/jetified-react-android-0.71.3-debug/prefab/modules/react_render_componentregistry/libs/android.x86_64/libreact_render_componentregistry.so",
         "/Users/chicmic/.gradle/caches/transforms-3/063ec92372c441ac2cf86f00dc6e7840/transformed/jetified-react-android-0.71.3-debug/prefab/modules/runtimeexecutor/libs/android.x86_64/libruntimeexecutor.so",
+        "/Users/chicmic/Desktop/reactnative/cloneProject/GoogleSignIn/android/app/build/intermediates/cxx/Debug/422zb232/obj/x86_64/libreact_codegen_rndocumentpicker.so",
         "/Users/chicmic/Desktop/reactnative/cloneProject/GoogleSignIn/android/app/build/intermediates/cxx/Debug/422zb232/obj/x86_64/libreact_codegen_rngesturehandler_codegen.so",
         "/Users/chicmic/Desktop/reactnative/cloneProject/GoogleSignIn/android/app/build/intermediates/cxx/Debug/422zb232/obj/x86_64/libreact_codegen_reactnativemmkv.so",
         "/Users/chicmic/Desktop/reactnative/cloneProject/GoogleSignIn/android/app/build/intermediates/cxx/Debug/422zb232/obj/x86_64/libreact_codegen_RNCViewPager.so",
@@ -83,6 +85,29 @@
       "abi": "x86_64",
       "artifactName": "react_codegen_reactnativemmkv",
       "output": "/Users/chicmic/Desktop/reactnative/cloneProject/GoogleSignIn/android/app/build/intermediates/cxx/Debug/422zb232/obj/x86_64/libreact_codegen_reactnativemmkv.so",
+      "runtimeFiles": [
+        "/Users/chicmic/.gradle/caches/transforms-3/214a14b36f8982373c293d23fa7fbf31/transformed/jetified-fbjni-0.3.0/prefab/modules/fbjni/libs/android.x86_64/libfbjni.so",
+        "/Users/chicmic/.gradle/caches/transforms-3/063ec92372c441ac2cf86f00dc6e7840/transformed/jetified-react-android-0.71.3-debug/prefab/modules/folly_runtime/libs/android.x86_64/libfolly_runtime.so",
+        "/Users/chicmic/.gradle/caches/transforms-3/063ec92372c441ac2cf86f00dc6e7840/transformed/jetified-react-android-0.71.3-debug/prefab/modules/glog/libs/android.x86_64/libglog.so",
+        "/Users/chicmic/.gradle/caches/transforms-3/063ec92372c441ac2cf86f00dc6e7840/transformed/jetified-react-android-0.71.3-debug/prefab/modules/jsi/libs/android.x86_64/libjsi.so",
+        "/Users/chicmic/.gradle/caches/transforms-3/063ec92372c441ac2cf86f00dc6e7840/transformed/jetified-react-android-0.71.3-debug/prefab/modules/react_codegen_rncore/libs/android.x86_64/libreact_codegen_rncore.so",
+        "/Users/chicmic/.gradle/caches/transforms-3/063ec92372c441ac2cf86f00dc6e7840/transformed/jetified-react-android-0.71.3-debug/prefab/modules/react_debug/libs/android.x86_64/libreact_debug.so",
+        "/Users/chicmic/.gradle/caches/transforms-3/063ec92372c441ac2cf86f00dc6e7840/transformed/jetified-react-android-0.71.3-debug/prefab/modules/react_nativemodule_core/libs/android.x86_64/libreact_nativemodule_core.so",
+        "/Users/chicmic/.gradle/caches/transforms-3/063ec92372c441ac2cf86f00dc6e7840/transformed/jetified-react-android-0.71.3-debug/prefab/modules/react_render_core/libs/android.x86_64/libreact_render_core.so",
+        "/Users/chicmic/.gradle/caches/transforms-3/063ec92372c441ac2cf86f00dc6e7840/transformed/jetified-react-android-0.71.3-debug/prefab/modules/react_render_debug/libs/android.x86_64/libreact_render_debug.so",
+        "/Users/chicmic/.gradle/caches/transforms-3/063ec92372c441ac2cf86f00dc6e7840/transformed/jetified-react-android-0.71.3-debug/prefab/modules/react_render_graphics/libs/android.x86_64/libreact_render_graphics.so",
+        "/Users/chicmic/.gradle/caches/transforms-3/063ec92372c441ac2cf86f00dc6e7840/transformed/jetified-react-android-0.71.3-debug/prefab/modules/react_render_imagemanager/libs/android.x86_64/libreact_render_imagemanager.so",
+        "/Users/chicmic/.gradle/caches/transforms-3/063ec92372c441ac2cf86f00dc6e7840/transformed/jetified-react-android-0.71.3-debug/prefab/modules/rrc_image/libs/android.x86_64/librrc_image.so",
+        "/Users/chicmic/.gradle/caches/transforms-3/063ec92372c441ac2cf86f00dc6e7840/transformed/jetified-react-android-0.71.3-debug/prefab/modules/rrc_view/libs/android.x86_64/librrc_view.so",
+        "/Users/chicmic/.gradle/caches/transforms-3/063ec92372c441ac2cf86f00dc6e7840/transformed/jetified-react-android-0.71.3-debug/prefab/modules/turbomodulejsijni/libs/android.x86_64/libturbomodulejsijni.so",
+        "/Users/chicmic/.gradle/caches/transforms-3/063ec92372c441ac2cf86f00dc6e7840/transformed/jetified-react-android-0.71.3-debug/prefab/modules/yoga/libs/android.x86_64/libyoga.so"
+      ]
+    },
+    "react_codegen_rndocumentpicker::@1e246c1f1267e461f98b": {
+      "toolchain": "toolchain",
+      "abi": "x86_64",
+      "artifactName": "react_codegen_rndocumentpicker",
+      "output": "/Users/chicmic/Desktop/reactnative/cloneProject/GoogleSignIn/android/app/build/intermediates/cxx/Debug/422zb232/obj/x86_64/libreact_codegen_rndocumentpicker.so",
       "runtimeFiles": [
         "/Users/chicmic/.gradle/caches/transforms-3/214a14b36f8982373c293d23fa7fbf31/transformed/jetified-fbjni-0.3.0/prefab/modules/fbjni/libs/android.x86_64/libfbjni.so",
         "/Users/chicmic/.gradle/caches/transforms-3/063ec92372c441ac2cf86f00dc6e7840/transformed/jetified-react-android-0.71.3-debug/prefab/modules/folly_runtime/libs/android.x86_64/libfolly_runtime.so",

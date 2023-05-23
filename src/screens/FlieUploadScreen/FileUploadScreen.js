@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, Modal, Image } from 'react-native';
+import { View, Text, Modal, Image, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native';
+import { CustomButton, MyModal } from '../../components';
 /* import { CustomModal } from '../../components'; */
 import DocumentPicker from 'react-native-document-picker';
 import {
@@ -8,99 +9,6 @@ import {
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const MyModal = ({
-  modalVisible,
-  setModalVisible,
-  onPress,
-  fileInfo,
-  setFileInfo,
-  cancelAction,
-}) => {
-  return (
-    <Modal
-      animationType="slide"
-      transparent={true}
-      visible={modalVisible}
-      onRequestClose={() => {
-        alert('Modal has been closed.');
-        setModalVisible(!modalVisible);
-      }}
-    >
-      <View
-        style={{
-          borderWidth: 1,
-          flex: 1,
-          justifyContent: 'center',
-          borderColor: 'red',
-          backgroundColor: '#111',
-          opacity: 0.9,
-        }}
-      >
-        <View
-          style={{
-            alignSelf: 'center',
-            borderWidth: 1,
-            width: wp('80%'),
-            height: hp('60%'),
-            backgroundColor: '#fff',
-            flexWrap: 'wrap',
-            zIndex: 1,
-          }}
-        >
-          <Text style={{ justifyContent: 'space-between', borderWidth: 1 }}>
-            <Text
-              style={{
-                borderWidth: 1,
-                borderColor: 'red',
-                backgroundColor: 'red',
-              }}
-            >
-              Choice File
-            </Text>
-            <Text
-              style={{
-                color: '#111',
-                alignSelf: 'flex-end',
-              }}
-              onPress={() => setModalVisible(!modalVisible)}
-            >
-              X
-            </Text>
-          </Text>
-
-          {fileInfo.uri ? (
-            <>
-              <View>
-                <Text>
-                  <Text>Uri:</Text>
-                  <Text>{fileInfo.uri}</Text>
-                </Text>
-              </View>
-              <View>
-                <Text>
-                  <Text>File Name: </Text>
-                  <Text>{fileInfo.name}</Text>
-                </Text>
-              </View>
-              <View>
-                <Text>Type:</Text>
-                <Text>{fileInfo.type}</Text>
-              </View>
-            </>
-          ) : (
-            <></>
-          )}
-          <TouchableOpacity onPress={onPress}>
-            <Text>choice file</Text>
-          </TouchableOpacity>
-          <TouchableOpacity onPress={cancelAction}>
-            <Text>Cancel</Text>
-          </TouchableOpacity>
-        </View>
-      </View>
-    </Modal>
-  );
-};
 const FileUploadScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [fileInfo, setFileInfo] = useState({});
@@ -114,12 +22,6 @@ const FileUploadScreen = () => {
     try {
       const res = await DocumentPicker.pick({
         type: [DocumentPicker.types.allFiles],
-        //There can me more options as well
-        // DocumentPicker.types.allFiles
-        // DocumentPicker.types.images
-        // DocumentPicker.types.plainText
-        // DocumentPicker.types.audio
-        // DocumentPicker.types.pdf
       });
       //Printing the log realted to the file
       /*    console.log('res : ' + JSON.stringify(res));
@@ -128,6 +30,7 @@ const FileUploadScreen = () => {
       console.log('File Name : ' + res.name);
       console.log('File Size : ' + res.size); */
       //Setting the state to show single file attributes
+      console.log(res[0].fileCopyUri, 'file url');
       console.log(res[0], 'fileInfo');
       setFileInfo(res[0]);
     } catch (err) {
@@ -164,3 +67,30 @@ const FileUploadScreen = () => {
   );
 };
 export default FileUploadScreen;
+const styles = StyleSheet.create({
+  modalStyle: {
+    borderWidth: 1,
+    flex: 1,
+    justifyContent: 'center',
+    borderColor: 'red',
+    backgroundColor: '#111',
+    opacity: 0.9,
+  },
+  modalContainer: {
+    alignSelf: 'center',
+    borderWidth: 1,
+    width: wp('80%'),
+    height: hp('60%'),
+    backgroundColor: '#fff',
+    flexWrap: 'wrap',
+  },
+  modalHeader: {
+    fontSize: hp('4%'),
+    borderColor: 'red',
+    backgroundColor: 'red',
+  },
+  modalClose: {
+    color: '#111',
+    alignSelf: 'flex-end',
+  },
+});

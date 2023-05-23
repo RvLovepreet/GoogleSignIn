@@ -1,7 +1,13 @@
 import React from 'react';
-import { Text, Image, StyleSheet, Dimensions } from 'react-native';
+import {
+  Text,
+  Image,
+  StyleSheet,
+  Dimensions,
+  TouchableOpacity,
+} from 'react-native';
 import { FontSize } from '../../theme/Variables';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+/* import { TouchableOpacity } from 'react-native-gesture-handler'; */
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
