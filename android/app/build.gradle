@@ -90,15 +90,24 @@ def reactNativeArchitectures() {
 }
 
 android {
+    //new code for image picker
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+    //new code for image picker
+
     ndkVersion rootProject.ext.ndkVersion
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
     namespace "com.myapp"
     defaultConfig {
+        //new code for image picker
+        targetSdkVersion 27
+         vectorDrawables.useSupportLibrary = true
+        //new code for image picker
         applicationId "com.myapp"
         minSdkVersion rootProject.ext.minSdkVersion
-        targetSdkVersion rootProject.ext.targetSdkVersion
+        // targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
     }

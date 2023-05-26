@@ -54,6 +54,7 @@ export const Common = {
   email: 'Email:',
   familyName: 'Family Name',
   password: 'Password',
+  UploadImage: 'Upload Image',
 };
 export const ImagePath = {
   logo: require('../theme/assets/images/googlelogo.png'),

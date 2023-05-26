@@ -1,4 +1,5 @@
 export { default as Brand } from './Brand/Brand';
+export { default as Field } from './Field/Field';
 export { default as CustomModal } from './CustomModal/CustomModal';
 export { default as CustomHeader } from './CustomHeader/CustomHeader';
 export { default as CustomInfo } from './CustomInfo/CustomInfo';

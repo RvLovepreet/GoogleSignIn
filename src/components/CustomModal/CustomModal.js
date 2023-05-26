@@ -1,24 +1,15 @@
 import React, { useState } from 'react';
 import { View, Text, Modal, Image, StyleSheet } from 'react-native';
 import { TouchableOpacity } from 'react-native';
+import FileViewer from 'react-native-file-viewer';
 
 import CustomButton from '../CustomButton/CustomButton';
-
+import Field from '../Field/Field';
 import {
   widthPercentageToDP as wp,
   heightPercentageToDP as hp,
 } from 'react-native-responsive-screen';
 
-const Field = ({ title, data }) => {
-  return (
-    <View>
-      <Text style={styles.fieldContainer}>
-        <Text style={styles.field}>{title}</Text>
-        <Text style={styles.fieldValue}>{data ? data : 'no file Choice'}</Text>
-      </Text>
-    </View>
-  );
-};
 const MyModal = ({
   modalVisible,
   setModalVisible,
@@ -30,6 +21,11 @@ const MyModal = ({
   return (
     <Modal
       animationType="slide"
+      theme={{
+        colors: {
+          backdrop: 'transparent',
+        },
+      }}
       transparent={true}
       visible={modalVisible}
       onRequestClose={() => {
@@ -43,40 +39,36 @@ const MyModal = ({
             <View>
               <TouchableOpacity
                 style={{ padding: hp('1%') }}
-                onPress={() => setModalVisible(!modalVisible)}
+                onPress={cancelAction}
               >
                 <Text style={styles.modalClose}>X</Text>
               </TouchableOpacity>
             </View>
           </View>
 
-          <Field title={'uri:'} data={fileInfo.uri} />
-          <Field title={'name:'} data={fileInfo.name} />
+          <Field title={'name:'} uri={fileInfo.uri} data={fileInfo.name} />
           <Field title={'type:'} data={fileInfo.type} />
 
-          <View style={{ padding: wp('2%'), flex: 1 }}>
+          <View style={styles.btnContainer}>
+            {fileInfo.uri ? (
+              <CustomButton
+                CustomStyle={styles.customStyleDone}
+                title="Done"
+                onPress={() => setModalVisible(!modalVisible)}
+              />
+            ) : (
+              <View />
+            )}
             <CustomButton
-              CustomStyle={{ marginTop: 20, borderRadius: 10 }}
+              CustomStyle={styles.customStyleChoiceFile}
               title="Choice File"
               onPress={onPress}
             />
-            <CustomButton
-              CustomStyle={{
-                marginTop: 20,
-                backgroundColor: '#f21707',
-                borderRadius: 10,
-              }}
+            {/*     <CustomButton
+              CustomStyle={styles.customStyleCancel}
               title="Cancel"
               onPress={cancelAction}
-            />
-            {fileInfo.uri ? (
-              <Image
-                style={{ width: 200, height: 230 }}
-                source={{ uri: fileInfo.uri }}
-              />
-            ) : (
-              <></>
-            )}
+            /> */}
           </View>
         </View>
       </View>
@@ -89,17 +81,14 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     flex: 1,
     justifyContent: 'center',
-
-    backgroundColor: '#111',
-    opacity: 0.9,
   },
   modalContainer: {
     alignSelf: 'center',
-
+    justifyContent: 'space-between',
     width: wp('80%'),
-    height: hp('60%'),
+    height: hp('55%'),
     backgroundColor: '#fff',
-    flexWrap: 'wrap',
+    opacity: 1,
   },
   modalHeader: {
     flex: 1,
@@ -120,4 +109,16 @@ const styles = StyleSheet.create({
     fontSize: hp('2%'),
     fontWeight: '500',
   },
+  btnContainer: { padding: wp('2%'), flex: 1 },
+  customStyleCancel: {
+    marginTop: 20,
+    backgroundColor: '#f21707',
+    borderRadius: 10,
+  },
+  customStyleDone: {
+    marginTop: 20,
+    backgroundColor: '#37cc55',
+    borderRadius: 10,
+  },
+  customStyleChoiceFile: { marginTop: 20, borderRadius: 10 },
 });

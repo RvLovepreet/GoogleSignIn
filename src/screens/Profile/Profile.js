@@ -59,6 +59,11 @@ const Profile = ({ navigation }) => {
             CustomStyle={styles.btnCustomStyle}
             onPress={() => signOut()}
           />
+          <CustomButton
+            title={Common.UploadImage}
+            CustomStyle={styles.btnCustomStyle}
+            onPress={() => navigation.navigate('UploadImage')}
+          />
         </View>
       </View>
     </>
