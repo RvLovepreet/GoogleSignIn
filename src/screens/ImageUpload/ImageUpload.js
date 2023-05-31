@@ -22,10 +22,11 @@ const ImageUpload = () => {
     });
 
     setLoader(true);
+    console.log(image.mime, 'hello 1 ');
     const data = await uploadImage(image);
     console.log(data, 'hello2');
     // setUri(data.path);
-    setUri(data?.data.data.image_url);
+    setUri(data?.data?.status?.image_url);
     setLoader(false);
   };
 
@@ -60,9 +61,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   ImageStyle: {
-    width: wp('30%'),
-    height: wp('30%'),
+    width: hp('15%'),
+    height: hp('15%'),
     marginBottom: wp('20%'),
-    borderRadius: 50,
+    borderRadius: 100,
   },
 });

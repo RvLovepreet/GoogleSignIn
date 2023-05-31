@@ -1,11 +1,10 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 const baseQuery = fetchBaseQuery({
-  baseUrl: 'https://7cb9-112-196-113-2.ngrok-free.app/',
+  baseUrl: 'https://558c-112-196-113-2.ngrok-free.app/',
   prepareHeaders: headers => {
     headers.append(
       'authorization',
-      `Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MGMxYjRjMS03NzM0LTRiOGUtYjc5Ny1iZGQ3N2Y4Mjk4NDMiLCJzdWIiOiI0Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjg1MDkzMTgxLCJleHAiOjE2ODUxNzk1ODF9.nJ5rQWu-ncIuL3MP95mBaDVH4z2VPeSHLJvxXIy3NOM this is response tokne
-        `,
+      'Bearer eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI2MGMxYjRjMS03NzM0LTRiOGUtYjc5Ny1iZGQ3N2Y4Mjk4NDMiLCJzdWIiOiI0Iiwic2NwIjoidXNlciIsImF1ZCI6bnVsbCwiaWF0IjoxNjg1MzUwNDI0LCJleHAiOjE2ODU0MzY4MjR9.Ukupi2GJShIiEqnVsS5RENNCdh0Bf5hc_rWf85yhC0I',
     );
     return headers;
   },

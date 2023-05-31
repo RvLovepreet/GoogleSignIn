@@ -4,10 +4,11 @@ export const userApi = api.injectEndpoints({
     uploadImage: build.mutation({
       query: image => {
         const formData = new FormData();
+        console.log(image, 'in slice');
         formData.append('image', {
-          name: 'test',
+          name: 'text',
           uri: image.path,
-          type: 'image/jpg',
+          type: 'image/jpeg',
         });
         return {
           url: 'user_images/',
